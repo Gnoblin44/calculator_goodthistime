@@ -2,7 +2,7 @@
 # first calculator
 print('Your choices are: add, sub, mult, div, pow\n')
 
-def calculator(x, y)
+def calculator(x, y):
     operator = input("Enter a operation: ")
     if operator == 'add':
         return x + y
@@ -16,3 +16,4 @@ def calculator(x, y)
         return x ** y
     else:
         print('This is not the right operator ')
+print(calculator(3, 8))
