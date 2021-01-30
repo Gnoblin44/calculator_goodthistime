@@ -10,26 +10,38 @@ powers '**'
 
 class Calc:
 
-    op = ('+', '-', '*', '/', '**')
+    operations = ('+', '-', '*', '/', '**')
 
     def __init__(self):
         self.x = None
         self.y = None
+        self.op = None
 
     def run(self):
-        while True:
-            if self.op == '+':
-                return self.add()
-            elif self.op == '-':
-                return self.sub()
-            elif self.op == '*':
-                return self.mult()
-            elif self.op == '/':
-                return self.div()
-            elif self.op == '**':
-                return self.pow()
-            else:
-                raise ValueError("Wrong operation, try again... ")
+        self.prompt_op()
+        self.prompt_x()
+        self.prompt_y()
+
+        if self.op == '+':
+            return self.add()
+        elif self.op == '-':
+            return self.sub()
+        elif self.op == '*':
+            return self.mult()
+        elif self.op == '/':
+            return self.div()
+        elif self.op == '**':
+            return self.pow()
+        else:
+            raise ValueError("Wrong operation... %s" % self.op)
+
+
+    def prompt_op(self):
+        self.op = Calc.operations
+        self.op = input("Enter an operation: ")
+        if self.op not in Calc.operations:
+            print("sorry not in ")
+
 
     def prompt_x(self):
         try:
@@ -47,13 +59,22 @@ class Calc:
 
 
     def add(self):
-        self.x + self.y
+        return self.x + self.y
 
+    def sub(self):
+        return self.x - self.y
 
+    def mult(self):
+        return self.x * self.y
 
+    def div(self):
+        return self.x / self.y
 
+    def pow(self):
+        return self.x ** self.y
 
-
+Calculator = Calc()
+print(Calculator.run())
 
 
 
