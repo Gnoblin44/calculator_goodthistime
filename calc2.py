@@ -33,27 +33,28 @@ class Calc:
         elif self.op == '**':
             return self.pow()
         else:
-            raise ValueError("Wrong operation... %s" % self.op)
+            raise ValueError("Wrong operation... ")
 
 
     def prompt_op(self):
-        self.op = Calc.operations
-        self.op = input("Enter an operation: ")
+        # self.op = Calc.operations
+        self.op = input("Enter an operation: " + ', '.join(Calc.operations))
         if self.op not in Calc.operations:
-            print("sorry not in ")
+            raise ValueError("Sorry, wrong operation")
+        return self.op
 
 
     def prompt_x(self):
         try:
             int(input('Enter the first number: '))
-        except:
+        except ValueError:
             print('Sorry, wrong value')
         return self.x
 
     def prompt_y(self):
         try:
             int(input('Enter a second number: '))
-        except:
+        except ValueError:
             print('Sorry, wrong value')
         return self.y
 
@@ -75,26 +76,6 @@ class Calc:
 
 Calculator = Calc()
 print(Calculator.run())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
