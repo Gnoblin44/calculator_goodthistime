@@ -19,6 +19,11 @@ class Calc:
         self.op = None
 
     def run(self):
+        """
+        The self.prompts are taken from the bottom functions and placed in here.
+        This is pretty cool as pretty much every programming languages read top to bottom.
+        But, the class function is different and this can confuse beginners.
+        """
         self.prompt_op()
         self.prompt_x()
         self.prompt_y()
@@ -33,14 +38,17 @@ class Calc:
             return self.div()
         elif self.op == '**':
             return self.pow()
-        else:
-            raise ValueError("Wrong operation... %s" % self.op)
+        # else:
+        #     print("Wrong operation... ")
 
 
     def prompt_op(self):
 
         while self.op not in Calc.operations:
             self.op = input("Enter an operation " + ', '.join(Calc.operations) + ': ')
+            if self.op not in Calc.operations:
+                print("Wrong operation... ")
+
 
         # self.op = Calc.operations
         # self.op = input("Enter an operation: " + ', '.join(Calc.operations))
@@ -50,7 +58,6 @@ class Calc:
 
 
     def prompt_x(self):
-
 
         try:
             self.x = int(input("Enter a number: "))

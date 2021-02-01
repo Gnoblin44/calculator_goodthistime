@@ -3,6 +3,9 @@
 print('Your choices are: add, sub, mult, div, pow\n')
 
 def calculator(x, y):
+    """
+    Don't worry, I'll fix these later :)
+    """
     operator = input("Enter a operation: ")
     if operator == 'add':
         return x + y
