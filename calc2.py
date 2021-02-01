@@ -1,6 +1,7 @@
 
 # another calculator
-print("""Your choices are:
+print("""
+Your choices are:
 addition '+'
 subtraction '-'
 multiplication '*'
@@ -50,11 +51,11 @@ class Calc:
 
     def prompt_x(self):
 
-        while True:
-            try:
-                self.x = int(input("Enter a number: "))
-            except ValueError:
-                print("Sorry, wrong value. Try again... ")
+
+        try:
+            self.x = int(input("Enter a number: "))
+        except ValueError:
+            print("Sorry, wrong value. Try again... ")
 
         # try:
         #     int(input('Enter the first number: '))
@@ -64,11 +65,10 @@ class Calc:
 
     def prompt_y(self):
 
-        while True:
-            try:
-                self.y = int(input("Enter a second number: "))
-            except ValueError:
-                print("Sorry, wrong value. Try again... ")
+        try:
+            self.y = int(input("Enter a second number: "))
+        except ValueError:
+            print("Sorry, wrong value. Try again... ")
         # try:
         #     int(input('Enter a second number: '))
         # except ValueError:
