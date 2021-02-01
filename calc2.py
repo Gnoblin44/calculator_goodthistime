@@ -1,5 +1,5 @@
 
-# second calculator
+# another calculator
 print("""Your choices are:
 addition '+'
 subtraction '-'
@@ -33,30 +33,47 @@ class Calc:
         elif self.op == '**':
             return self.pow()
         else:
-            raise ValueError("Wrong operation... ")
+            raise ValueError("Wrong operation... %s" % self.op)
 
 
     def prompt_op(self):
+
+        while self.op not in Calc.operations:
+            self.op = input("Enter an operation " + ', '.join(Calc.operations) + ': ')
+
         # self.op = Calc.operations
-        self.op = input("Enter an operation: " + ', '.join(Calc.operations))
-        if self.op not in Calc.operations:
-            raise ValueError("Sorry, wrong operation")
-        return self.op
+        # self.op = input("Enter an operation: " + ', '.join(Calc.operations))
+        # if self.op not in Calc.operations:
+        #     raise ValueError("Sorry, wrong operation")
+        # return self.op
 
 
     def prompt_x(self):
-        try:
-            int(input('Enter the first number: '))
-        except ValueError:
-            print('Sorry, wrong value')
-        return self.x
+
+        while True:
+            try:
+                self.x = int(input("Enter a number: "))
+            except ValueError:
+                print("Sorry, wrong value. Try again... ")
+
+        # try:
+        #     int(input('Enter the first number: '))
+        # except ValueError:
+        #     print('Sorry, wrong value')
+        # return self.x
 
     def prompt_y(self):
-        try:
-            int(input('Enter a second number: '))
-        except ValueError:
-            print('Sorry, wrong value')
-        return self.y
+
+        while True:
+            try:
+                self.y = int(input("Enter a second number: "))
+            except ValueError:
+                print("Sorry, wrong value. Try again... ")
+        # try:
+        #     int(input('Enter a second number: '))
+        # except ValueError:
+        #     print('Sorry, wrong value')
+        # return self.y
 
 
     def add(self):
@@ -74,10 +91,6 @@ class Calc:
     def pow(self):
         return self.x ** self.y
 
+
 Calculator = Calc()
 print(Calculator.run())
-
-
-
-
-
