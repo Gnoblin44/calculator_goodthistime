@@ -22,11 +22,12 @@ class Calc:
         """
         The self.prompts are taken from the bottom functions and placed in here.
         This is pretty cool as pretty much every programming languages read top to bottom.
-        But, the class function is different and this can confuse beginners.
+        But, the class function is different and this can confuse beginners (which means me).
         """
+
         self.prompt_op()
-        self.prompt_x()
-        self.prompt_y()
+        self.x = self.prompt_x()
+        self.y = self.prompt_y()
 
         if self.op == '+':
             return self.add()
@@ -58,29 +59,19 @@ class Calc:
 
 
     def prompt_x(self):
+        while True:
+            try:
+                return int(input("Enter a number: "))
+            except ValueError:
+                print("Sorry, wrong value. Try again... ")
 
-        try:
-            self.x = int(input("Enter a number: "))
-        except ValueError:
-            print("Sorry, wrong value. Try again... ")
-
-        # try:
-        #     int(input('Enter the first number: '))
-        # except ValueError:
-        #     print('Sorry, wrong value')
-        # return self.x
 
     def prompt_y(self):
-
-        try:
-            self.y = int(input("Enter a second number: "))
-        except ValueError:
-            print("Sorry, wrong value. Try again... ")
-        # try:
-        #     int(input('Enter a second number: '))
-        # except ValueError:
-        #     print('Sorry, wrong value')
-        # return self.y
+        while True:
+            try:
+                return int(input("Enter a second number: "))
+            except ValueError:
+                print("Sorry, wrong value. Try again... ")
 
 
     def add(self):
@@ -97,7 +88,6 @@ class Calc:
 
     def pow(self):
         return self.x ** self.y
-
 
 Calculator = Calc()
 print(Calculator.run())
